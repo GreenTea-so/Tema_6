@@ -1,18 +1,34 @@
 const zad1 = ()=>{
-    const array =  [-1, 10, -9, 5, 6, -10]
+    const array =  [-1, 15, 16, 0, 21, 20, -10]
+    let back_i = array[0]
     let s = 0
     let max = 0
+    let tr = false
 
-    for(let i=0; i<array.length; i++){
-        if(array[i]>0){
-            s += array[i]
-        }
-        else{
-            if(max < s){
+    for(let i=1; i<array.length; i++){
+        if (tr){
+            s+=array[i]
+            tr = false
+            if(s > max){
                 max = s
+            }
+            else{
                 s=0
             }
-        } 
+        }
+        if(array[i] +1 == array[i+1]){
+            s+= array[i]
+            if(array[i+1] +1 != array[i+2]){
+                tr = true
+            }
+            if(s > max){
+                max = s
+            }
+        }
+        else{
+            s=0
+        }
+        
     }
     alert(max)
 }
