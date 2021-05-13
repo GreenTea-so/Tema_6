@@ -1,11 +1,32 @@
-const zad1 = ()=>{
-    const array =  [-1, 15, 16, 0, 21, 20, -10]
+const zad1 = (object)=>{
+    const array =  []
     let back_i = array[0]
     let s = 0
     let max = 0
     let tr = false
 
-    for(let i=1; i<array.length; i++){
+    let str = object.value
+
+    let j = 0
+
+
+    
+
+
+
+
+    for(let i=0; i<str.length; i++){
+        if(str[i] == " " || i == str.length -1){
+            array.push(Number(str.slice(j,i+1)))
+            
+            j = i
+            console.log(j)
+        }
+    }
+
+    console.log(array)
+
+    for(let i=0; i<array.length; i++){
         if (tr){
             s+=array[i]
             tr = false
